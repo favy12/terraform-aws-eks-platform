@@ -1,0 +1,23 @@
+severity:
+  - HIGH
+  - CRITICAL
+
+misconfiguration:
+  terraform:
+    exclude-downloaded-modules: true
+
+exitcode: 1
+
+scan:
+  skip-dirs:
+    - .terraform
+    - .git
+
+# Suppressions carry a reason and an owner. An unexplained ignore entry is
+# indistinguishable from an unnoticed vulnerability six months later.
+#
+# AVD-AWS-0104 — egress to 0.0.0.0/0 on the control plane SG. Nodes must
+#   reach the EKS API, ECR and S3; restricting this needs VPC endpoints,
+#   tracked separately.
+# AVD-AWS-0038 — control plane log types. All five are enabled in the eks
+#   module; the rule misreads the dynamic list.
