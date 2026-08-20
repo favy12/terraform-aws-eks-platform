@@ -173,5 +173,3 @@ CI runs all four on every PR. `plan` output is posted as a PR comment for both e
 ## License
 
 MIT — see [LICENSE](LICENSE).
-# terraform-aws-eks-platform
-Production-shaped EKS clusters: private-subnet nodes, IRSA, KMS-encrypted secrets, and security scanning as a CI gate
